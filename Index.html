@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vulnerable XSS Example</title>
+</head>
+<body>
+    <h1>XSS Vulnerability Example</h1>
+    <form>
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="name">
+        <button type="button" onclick="displayMessage()">Submit</button>
+    </form>
+    <p id="message"></p>
+
+    <script>
+        function displayMessage() {
+            const name = document.getElementById('name').value;
+            document.getElementById('message').innerHTML = `Hello, ${name}!`;
+        }
+    </script>
+</body>
+</html>
