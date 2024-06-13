@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local Storage Vulnerability</title>
+</head>
+<body>
+    <h1>Local Storage Vulnerability Example</h1>
+    <form>
+        <label for="token">Enter your token:</label>
+        <input type="text" id="token" name="token">
+        <button type="button" onclick="saveToken()">Save Token</button>
+    </form>
+    <p>Stored Token: <span id="storedToken"></span></p>
+
+    <script>
+        function saveToken() {
+            const token = document.getElementById('token').value;
+            localStorage.setItem('token', token);
+            displayToken();
+        }
+
+        function displayToken() {
+            const token = localStorage.getItem('token');
+            document.getElementById('storedToken').innerText = token;
+        }
+
+        window.onload = function() {
+            displayToken();
+        };
+    </script>
+</body>
+</html>
